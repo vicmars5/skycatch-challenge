@@ -8,6 +8,8 @@ L.tileLayer('https://{s}.tiles.mapbox.com/v4/{user}.{mapId}/{z}/{x}/{y}.png?acce
 }).addTo(map);
 
 var markers = L.markerClusterGroup();
+
 markers.addLayer(L.marker([37.4501001, -121.9107704]).bindPopup('Keira River'));
 markers.addLayer(L.marker([28.3208337, -81.553712]).bindPopup('Willow Creek'));
+
 map.addLayer(markers);
