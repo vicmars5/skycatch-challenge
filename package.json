@@ -18,5 +18,8 @@
   "homepage": "https://github.com/vicmars5/skycatch-challenge#readme",
   "devDependencies": {
     "http-server": "^0.9.0"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
   }
 }
