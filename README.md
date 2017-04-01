@@ -1,12 +1,18 @@
-# Victor challenge
+# skycatch-challenge
 
-challenge path `https://docs.google.com/document/d/1VHDzWPE0PobGgP8XHUmZcmHPIxBpbht4nVxDo1V3aJk/edit#`
+> A Vue.js project
 
+## Build Setup
 
-start server
+``` bash
+# install dependencies
+npm install
 
+# serve with hot reload at localhost:8080
+npm run dev
+
+# build for production with minification
+npm run build
 ```
-npm run server
-```
 
-address: `localhost:8080`
+For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
