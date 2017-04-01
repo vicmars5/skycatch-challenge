@@ -1,0 +1,25 @@
+{
+  "name": "challenge",
+  "version": "1.0.0",
+  "description": "Skycatch internship challenge",
+  "main": "app.js",
+  "scripts": {
+    "server": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vicmars5/skycatch-challenge.git"
+  },
+  "author": "Victor Diaz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vicmars5/skycatch-challenge/issues"
+  },
+  "homepage": "https://github.com/vicmars5/skycatch-challenge#readme",
+  "devDependencies": {
+    "http-server": "^0.9.0"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
