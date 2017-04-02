@@ -1,6 +1,15 @@
 <template>
-  <div id="app">
-    <locations-map></locations-map>
+  <div id="app" class="mdl-layout">
+    <div class="mdl-layout__content">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--6-col">
+
+        </div>
+        <div class="mdl-cell mdl-cell--6-col">
+          <locations-map></locations-map>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -21,6 +30,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../node_modules/material-design-lite/material.css";
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
