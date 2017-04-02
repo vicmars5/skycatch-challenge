@@ -18,9 +18,9 @@ export default {
   },
   watch: {
     map() {
-      
+
     }
-  }
+  },
   mounted() {
     map = L.map('map').setView([37.4501001, -121.9107704], 4)
 
