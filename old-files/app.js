@@ -21,4 +21,5 @@ places.forEach((place) => {
   markers.addLayer(L.marker([place.location.lat, place.location.lng]) // Position
       .bindPopup(`<b>${place.id}</b> ${place.name}.`)); // Popup info
 });
+
 map.addLayer(markers);
