@@ -2,13 +2,13 @@
   <div id="app" class="mdl-layout">
     <div class="mdl-layout__content">
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--2-col">
+        <div class="mdl-cell mdl-cell--3-col">
           <places-table></places-table>
         </div>
         <div class="mdl-cell mdl-cell--3-col">
           <places-form></places-form>
         </div>
-        <div class="mdl-cell mdl-cell--7-col">
+        <div class="mdl-cell mdl-cell--6-col">
           <locations-map></locations-map>
         </div>
       </div>

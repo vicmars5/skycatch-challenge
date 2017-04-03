@@ -1,5 +1,8 @@
 <template lang="html">
-  <div id="map">
+  <div>
+    <p v-if="center"> Lat: {{ center.lat }}, lon {{ center.lng }} </p>
+    <div id="map">
+    </div>
   </div>
 </template>
 
@@ -24,25 +27,26 @@ export default {
     }
   },
   watch: {
-    places(val, oldVal) {
+    places(val) {
       this.removePlaces()
-      console.log('add places');
-      // this.addPlaces()
+      this.addPlaces(val)
     },
     center(location) {
       this.map.setView([location.lat, location.lng], location.zoom)
     }
   },
   methods: {
-    addPlaces() {
+    addPlaces(places) {
       if(!this.map) return;
       const map = this.map
-      const places = this.places
       const markers = L.markerClusterGroup();
+      const store = this.$store;
 
       places.forEach( (place) => {
         let marker = L.marker([place.location.lat, place.location.lng])
-            .on('click', (el) => map.setView(el.latlng))
+            .on('click', (el) => {
+              store.commit('locationsMap_center', el.latlng)
+            })
             .bindPopup(`<b> ${place.id} </b> ${place.name}`)
         markers.addLayer(marker)
         // .on('click', (el) => alert(el.target))
@@ -58,7 +62,6 @@ export default {
   },
   mounted() {
     const map = L.map('map').setView([37.4501001, -121.9107704], 4)
-    const places = this.places
 
     L.tileLayer('https://{s}.tiles.mapbox.com/v4/{user}.{mapId}/{z}/{x}/{y}.png?access_token={token}', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -68,7 +71,7 @@ export default {
       token: 'pk.eyJ1Ijoic2t5Y2F0Y2gtZGV2IiwiYSI6Ik1PVjVYNEkifQ.j2X9OOZDz7ABqUvHk4kesw'
     }).addTo(map)
     this.map = map
-    this.addPlaces()
+    this.addPlaces(this.places)
   }
 }
 </script>

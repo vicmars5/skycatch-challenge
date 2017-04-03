@@ -5,11 +5,11 @@
       <label class="mdl-textfield__label" for="sample3">Name</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" pattern="(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$" v-model="lat">
+      <input class="mdl-textfield__input" type="text" pattern="(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,10})?))$" v-model="lat">
       <label class="mdl-textfield__label">Latitud</label>
     </div>
     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      <input class="mdl-textfield__input" type="text" pattern="^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$" v-model="lng">
+      <input class="mdl-textfield__input" type="text" pattern="^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,10})?))$" v-model="lng">
       <label class="mdl-textfield__label">Longitud</label>
     </div>
     <div class="">
@@ -34,12 +34,12 @@ export default {
       return this.$store.state.placesForm.place
     }
   },
-  wathc: {
+  watch: {
     place(place) {
       if (place) {
         this.name = place.name
-        this.lat = place.lat
-        this.lng = place.lng
+        this.lat = place.location.lat
+        this.lng = place.location.lng
       } else {
         this.clear()
       }
@@ -51,9 +51,9 @@ export default {
       const nameRgx = /^[a-zA-Z0-9\s]{4,20}$/
       // Regex from https://goo.gl/wporIj
       // Latitude Regex
-      const latRgx = /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,6})?))$/
+      const latRgx = /^(\+|-)?(?:90(?:(?:\.0{1,6})?)|(?:[0-9]|[1-8][0-9])(?:(?:\.[0-9]{1,10})?))$/
       // Longitude Regex
-      const lngRgx = /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,6})?))$/
+      const lngRgx = /^(\+|-)?(?:180(?:(?:\.0{1,6})?)|(?:[0-9]|[1-9][0-9]|1[0-7][0-9])(?:(?:\.[0-9]{1,10})?))$/
 
 
       if(nameRgx.test(this.name) && latRgx.test(this.lat) && lngRgx.test(this.lng)) {
@@ -62,7 +62,7 @@ export default {
           place = this.place
           place.name = this.name
           place.location.lat = this.lat
-          place.location.lng = thislng
+          place.location.lng = this.lng
           this.$store.commit('updatePlace', place)
         } else {
           place = {
@@ -76,6 +76,7 @@ export default {
           this.$store.commit('addPlace', place)
           this.clear()
         }
+        console.log('Places form befor set center');
         this.$store.commit('locationsMap_center', place.location)
         this.$store.commit('placesForm_setPlace', null)
       } else {

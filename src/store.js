@@ -1,31 +1,35 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import places from './places'
+import localStorage from './localStorage'
 
 Vue.use(Vuex)
 
 export const store = new Vuex.Store({
+  plugins: [localStorage],
   state: {
-    places,
+    places: [],
     placesTable: {
       page: 0
     },
     locationsMap: {
-      center: [],
+      center: null,
     },
     placesForm: {
       place: null
     }
   },
   mutations: {
+    places(state, places) {
+      state.places = places
+    },
     addPlace(state, place) {
       let lastEl = state.places[state.places.length - 1]
       let id
 
       if(lastEl) id = lastEl.id + 1
       else id = 0
-      
+
       state.places.push({
         id,
         name: place.name,
@@ -33,8 +37,9 @@ export const store = new Vuex.Store({
       })
     },
     updatePlace(state, place) {
-      const index = this.state.places.findIndex(el => el.id === place.id)
-      this.state.places[index] = place
+      const index = state.places.findIndex(el => el.id === place.id)
+      state.places[index] = place
+      console.log('Update ' + place.id);
     },
     placesForm_setPlace(state, place) {
       state.placesForm.place = place
