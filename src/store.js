@@ -13,6 +13,9 @@ export const store = new Vuex.Store({
     },
     locationsMap: {
       center: [],
+    },
+    placesForm: {
+      place: null
     }
   },
   mutations: {
@@ -22,21 +25,28 @@ export const store = new Vuex.Store({
 
       if(lastEl) id = lastEl.id + 1
       else id = 0
-
+      
       state.places.push({
         id,
         name: place.name,
-        location: {
-          lat: place.lat,
-          lng: place.lng
-        }
+        location: place.location
       })
+    },
+    updatePlace(state, place) {
+      const index = this.state.places.findIndex(el => el.id === place.id)
+      this.state.places[index] = place
+    },
+    placesForm_setPlace(state, place) {
+      state.placesForm.place = place
     },
     placesTable_goNext(state, steps) {
       state.placesTable.page += steps
     },
     placesTable_goPrev(state, steps) {
       state.placesTable.page -= steps
+    },
+    locationsMap_center(state, location) {
+      state.locationsMap.center = location
     }
   }
 })

@@ -8,7 +8,7 @@
         <div class="mdl-cell mdl-cell--3-col">
           <places-form></places-form>
         </div>
-        <div class="mdl-cell mdl-cell--6-col">
+        <div class="mdl-cell mdl-cell--7-col">
           <locations-map></locations-map>
         </div>
       </div>

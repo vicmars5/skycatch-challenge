@@ -28,11 +28,10 @@ export default {
       const page = this.$store.state.placesTable.page
 
       places.sort((a, b) => {
-        if (a.name > b.name) return 1
-        if (a.name < b.name) return -1
+        if (a.name.toUpperCase() > b.name.toUpperCase()) return 1
+        if (a.name.toUpperCase() < b.name.toUpperCase()) return -1
         return 0
       })
-      console.log(`page: ${page}, until: ${page + pageLen}`);
       return places.slice(page, page + pageLen)
     },
     isNext() {
@@ -54,7 +53,7 @@ export default {
       this.$store.commit("placesTable_goPrev",  pageLen)
     },
     centerPlace(place) {
-      console.log(`Lat: ${place.location.lat}`);
+      this.$store.commit('locationsMap_center', place.location)
     }
   }
 }
@@ -62,6 +61,8 @@ export default {
 
 <style lang="sass" scoped>
 .places-table-container
+  .table td
+    cursor: pointer
   .table-nav
     width: 100%
     .left
