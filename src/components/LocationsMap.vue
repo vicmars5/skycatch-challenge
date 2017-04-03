@@ -6,23 +6,27 @@
 <script>
 import 'leaflet'
 import 'leaflet.markercluster'
-import places from '../places.js'
 
 const L = window.L;
 export default {
   data() {
     return {
-      map: [],
-      places,
+      map: []
+    }
+  },
+  computed: {
+    places() {
+      return this.$store.state.places
     }
   },
   watch: {
-    map() {
-
+    places(val, oldVal) {
+      alert(`New val: ${val.length}, old val: ${oldVal.length}`)
     }
   },
   mounted() {
-    map = L.map('map').setView([37.4501001, -121.9107704], 4)
+    const map = L.map('map').setView([37.4501001, -121.9107704], 4)
+    const places = this.places
 
     L.tileLayer('https://{s}.tiles.mapbox.com/v4/{user}.{mapId}/{z}/{x}/{y}.png?access_token={token}', {
       attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',

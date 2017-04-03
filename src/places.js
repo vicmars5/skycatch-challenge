@@ -1,4 +1,4 @@
-export default  [
+export default [
   {
     "id": 1,
     "location": {
@@ -55,6 +55,137 @@ export default  [
       "zoom": 17
     },
     "name": "Emmanuel Route"
+  },
+  {
+    "id": 4,
+    "location": {
+      "lat": 43.146427,
+      "lng": -85.563965,
+      "zoom": 17,
+      "bounds": {
+        "left": -85.5684646400288,
+        "bottom": 43.141927359971206,
+        "right": -85.5594653599712,
+        "top": 43.1509266400288
+      }
+    },
+    "name": "Fritsch Burgs"
+  },
+  {
+    "id": 5,
+    "location": {
+      "bounds": {
+        "bottom": 37.3780882,
+        "center": {
+          "lat": 37.3797222,
+          "lng": -121.8780948
+        },
+        "left": -121.880006,
+        "right": -121.8761837,
+        "top": 37.3813561
+      },
+      "lat": 37.379451,
+      "lng": -121.878584,
+      "zoom": 17
+    },
+    "name": "Jameson Harbor"
+  },
+  {
+    "id": 6,
+    "location": {
+      "bounds": {
+        "bottom": 37.6732782,
+        "center": {
+          "lat": 37.6751156,
+          "lng": -97.5312207
+        },
+        "left": -97.5334316,
+        "right": -97.5290099,
+        "top": 37.676953
+      },
+      "lat": 37.673097,
+      "lng": -97.531411,
+      "zoom": 17
+    },
+    "name": "Hane Mountains"
+  },
+  {
+    "id": 7,
+    "location": {
+      "bounds": {
+        "bottom": 33.5046828,
+        "center": {
+          "lat": 33.5061697,
+          "lng": -84.0065881
+        },
+        "left": -84.0080058,
+        "right": -84.0051703,
+        "top": 33.5076567
+      },
+      "lat": 33.50637,
+      "lng": -84.007057,
+      "zoom": 17
+    },
+    "name": "Dickinson Fall"
+  },
+  {
+    "id": 8,
+    "location": {
+      "bounds": {
+        "bottom": 37.4096405,
+        "center": {
+          "lat": 37.4105126,
+          "lng": -122.1513593
+        },
+        "left": -122.1520731,
+        "right": -122.1506455,
+        "top": 37.4113848
+      },
+      "lat": 37.410366,
+      "lng": -122.15135,
+      "maxZoomMap": 22,
+      "zoom": 18
+    },
+    "name": "Magnus Garden"
+  },
+  {
+    "id": 9,
+    "location": {
+      "bounds": {
+        "bottom": 37.4090271,
+        "center": {
+          "lat": 37.4105119,
+          "lng": -122.1514871
+        },
+        "left": -122.1533573,
+        "right": -122.1496168,
+        "top": 37.4119967
+      },
+      "lat": 37.41,
+      "lng": -122.151,
+      "maxZoomMap": 22,
+      "zoom": 18
+    },
+    "name": "Yundt Prairie"
+  },
+  {
+    "id": 10,
+    "location": {
+      "bounds": {
+        "bottom": 37.4096506,
+        "center": {
+          "lat": 37.4105256,
+          "lng": -122.1513489
+        },
+        "left": -122.1520782,
+        "right": -122.1506196,
+        "top": 37.4114006
+      },
+      "lat": 37.41052373363381,
+      "lng": -122.15136855840683,
+      "zoom": 19
+    },
+    "name": "Herman Estate"
   }]
 
 /* [

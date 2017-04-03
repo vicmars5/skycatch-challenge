@@ -2,8 +2,11 @@
   <div id="app" class="mdl-layout">
     <div class="mdl-layout__content">
       <div class="mdl-grid">
-        <div class="mdl-cell mdl-cell--6-col">
-
+        <div class="mdl-cell mdl-cell--2-col">
+          <places-table></places-table>
+        </div>
+        <div class="mdl-cell mdl-cell--3-col">
+          <places-form></places-form>
         </div>
         <div class="mdl-cell mdl-cell--6-col">
           <locations-map></locations-map>
@@ -15,6 +18,8 @@
 
 <script>
 import LocationsMap from './components/LocationsMap.vue'
+import PlacesForm from './components/PlacesForm.vue'
+import PlacesTable from './components/PlacesTable.vue'
 
 export default {
   name: 'app',
@@ -24,7 +29,9 @@ export default {
     }
   },
   components: {
-    LocationsMap
+    LocationsMap,
+    PlacesForm,
+    PlacesTable
   }
 }
 </script>
@@ -38,7 +45,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
 h1, h2 {
